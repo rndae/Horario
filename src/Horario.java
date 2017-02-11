@@ -1,48 +1,53 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Horario implements Comparable<Horario>
+public class Horario
 {
-    ArrayList<Vertice> materias;
-    byte puentes, choques;
+    private ArrayList<Vertice> materias;
+    private final Byte puentes, choques, dias; //dias=>libres
+    
+    public static final Comparator<Horario> POR_PUENTES = new PorPuentes();
+    public static final Comparator<Horario> POR_DIAS = new PorDias();
+    public static final Comparator<Horario> POR_CHOQUES = new PorChoques();
     
     public Horario(ArrayList<Vertice> m){
-        materias=m;
+        materias = m;
+        puentes = analizarP();
+        choques = analizarC();
+        dias = analizarD();
     }
     
-    @Override
-    public int compareTo(Horario b){ //por defecto
-        //return -1;
-        
-        //return 1;
-        
-        return 0;
+    private static class PorPuentes implements Comparator<Horario>{
+        public int compare(Horario v, Horario w)
+        {     return v.puentes.compareTo(w.puentes);}
     }
     
-    public int compareToP(Horario b){ //por puentes
-        //return -1;
-        
-        //return 1;
-        
-        return 0;
+    private static class PorDias implements Comparator<Horario>{
+        public int compare(Horario v,Horario w)
+        { return v.dias.compareTo(w.dias);}
     }
     
-    public int compareToC(Horario b){ //por choques
-        //return -1;
-        
-        //return 1;
-        
-        return 0;
+    private static class PorChoques implements Comparator<Horario>{
+        public int compare(Horario v, Horario w)
+            {return v.choques.compareTo(w.choques);}
     }
     
-    public int compareToD(Horario b){ //por calidad de docentes
-        //return -1;
+    private Byte analizarP(){
         
-        //return 1;
-        
-        return 0;
+        return null;
     }
     
-    public void desecharDisp(double a, double b){ //desecha por turno
-        //foreach...
+    private Byte analizarD(){
+        
+        return null;
+    }
+    
+    private Byte analizarC(){
+        
+        return null;
+    }
+    
+    public void desecharTurno(double a, double b){ //desecha por turno
+        //dentro del foreach principal de añadiduras
     }
 }
