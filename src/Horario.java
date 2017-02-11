@@ -48,6 +48,6 @@ public class Horario
     }
     
     public void desecharTurno(double a, double b){ //desecha por turno
-        //dentro del foreach principal de añadiduras
+        //dentro del foreach principal
     }
 }
